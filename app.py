@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Restaurant, MenuItem
@@ -6,8 +6,8 @@ from database_setup import Base, Restaurant, MenuItem
 
 app = Flask(__name__)
 
-engine = create_engine('sqllite:///restaurantmenu.db')
-Base.metadate.bind = engine
+engine = create_engine('sqlite:///restaurantmenu.db')
+Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
@@ -58,7 +58,7 @@ def editRestaurant(restaurant_id):
             editedRestaurant.name = request.form['name']
     else:
         return render_template(
-            'editRestaurant.html', restaurant=restaurant)
+            'editRestaurant.html', restaurant=editedRestaurant)
 
 
 # Route for deleting restaurant
@@ -74,7 +74,7 @@ def deleteRestaurant(restaurant_id):
             url_for('showRestaurants', restaurant_id=restaurant_id))
     else:
         return render_template(
-            'deleteRestaurant.html', restaurant=restaurant)
+            'deleteRestaurant.html', restaurant=restaurantToDelete)
 
 
 # Route for Restaurant menus

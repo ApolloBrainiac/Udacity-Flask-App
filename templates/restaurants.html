@@ -5,18 +5,18 @@
 <body>
 	<h1>Restaurant List</h1>
 		</br>
-	<a href='#'>Add New Restaurant</a>
+	<a href='{{url_for('newRestaurant')}}'>Add New Restaurant</a>
 	</br>
 	<div>
 		{%for r in restaurant%}
 		</br>
 		<h3>{{r.name}}</h3>
 		</br>
-		<a href='#'>Menu</a>
+		<a href='{{url_for('showMenu')}}'>Menu</a>
 		</br>
-		<a href='#'>Edit</a>
+		<a href='{{url_for('editRestaurant')}}'>Edit</a>
 		</br>
-		<a href='#'>Delete</a>
+		<a href='{{url_for('deleteRestaurant')}}'>Delete</a>
 		</br>
 		{% endfor %}
 	</div>

@@ -5,9 +5,11 @@
 <body>
 	<h1>{{restaurant.name}} Menu</h1>
 		</br>
+	{%if items != []%}
 	<a href='#'>Add New Menu Item</a>
 	</br>
 	<div>
+		
 		{%for i in items%}
 		</br>
 		<h3>{{i.name}}</h3>
@@ -18,7 +20,14 @@
 		</br>
 		<a href='#'>Delete</a>
 		</br>
+		
 		{% endfor %}
+	
+
+	{% else %}
+		<p>You currently have no menu items.</p>
+		<a href='#'>Add New Menu Item</a>
+	{% endif %}
 	</div>
 
 

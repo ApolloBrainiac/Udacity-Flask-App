@@ -118,9 +118,6 @@ def newMenuItem(restaurant_id):
         return render_template(
             'newMenuItem.html', restaurant_id=restaurant_id)
 
-    return render_template(
-        'newMenuItem.html', restaurant_id=restaurant_id)
-
 
 # Route for editing menu items
 

@@ -58,7 +58,6 @@ def menuItemJSON(restaurant_id, menu_id):
     return jsonify(menuItem=menuItem.serialize)
 
 
-
 # This page will show all restaurants
 
 @app.route('/')

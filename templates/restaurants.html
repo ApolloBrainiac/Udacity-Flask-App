@@ -1,13 +1,16 @@
 <html>
 <head>
 	<title>Restaurant List</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
-	<h1>Restaurant List</h1>
+	<div class='container '>
+	<h1 class='display-1'>Restaurant List</h1>
 		</br>
 	<a href="{{url_for('newRestaurant')}}">Add New Restaurant</a>
+	</div>
 	</br>
-	<div>
+	<div class='container'>
 		{%for r in restaurant%}
 		</br>
 		<h3>{{r.name}}</h3>

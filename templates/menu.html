@@ -6,7 +6,7 @@
 	<h1>{{restaurant.name}} Menu</h1>
 		</br>
 	{%if items != []%}
-	<a href='#'>Add New Menu Item</a>
+	<a href="{{url_for('newMenuItem',restaurant_id=restaurant.id)}}">Add New Menu Item</a>
 	</br>
 	<div>
 		
@@ -16,9 +16,9 @@
 		<h5>{{i.price}}</h5>
 		<p>{{i.description}}</p>
 		</br>
-		<a href='#'>Edit</a>
+		<a href="{{url_for('editMenuItem', restaurant_id=restaurant.id, menu_id=i.id)}}">Edit</a>
 		</br>
-		<a href='#'>Delete</a>
+		<a href="{{url_for('deleteMenuItem', restaurant_id=restaurant.id, menu_id=i.id)}}">Delete</a>
 		</br>
 		
 		{% endfor %}
@@ -26,7 +26,7 @@
 
 	{% else %}
 		<p>You currently have no menu items.</p>
-		<a href='#'>Add New Menu Item</a>
+		<a href="{{url_for('newMenuItem',restaurant_id=restaurant.id)}}">Add New Menu Item</a>
 	{% endif %}
 	</div>
 
